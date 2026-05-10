@@ -216,25 +216,35 @@ body{
 .booking-btn,
 .cancel-btn{
   border:none;
+
   padding:18px;
+
   border-radius:18px;
+
   width:100%;
+
   cursor:pointer;
 
   background:linear-gradient(
     135deg,
     #A68868,
     #E3C39D
-  );
+  ) !important;
 
-  color:#071739;
+  color:#071739 !important;
+
   font-weight:600;
+
   transition:.4s;
 }
 
 .booking-btn:hover,
 .cancel-btn:hover{
   transform:translateY(-4px);
+}
+
+.cancel-btn{
+  margin-top:15px;
 }
 
 .cancel-btn{

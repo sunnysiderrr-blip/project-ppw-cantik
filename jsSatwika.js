@@ -106,6 +106,32 @@ function renderBookings(){
 
   bookings.forEach((booking) => {
 
+  let paket = booking.paket;
+
+  if(!paket){
+
+    const jumlah =
+    parseInt(booking.guests);
+
+    if(jumlah === 1){
+
+      paket = "Paket Wanci (1 orang)";
+
+    }else if(jumlah === 2){
+
+      paket = "Paket Sapasang (2 orang)";
+
+    }else if(jumlah >= 3 && jumlah <= 10){
+
+      paket = "Paket Serumpun (Family 3-10 orang)";
+
+    }else if(jumlah > 10){
+
+      paket = "Paket Kenduri (Grup >10 orang)";
+    }
+
+  }
+
     bookingHistory.innerHTML += `
 
       <div class="history-card">
@@ -134,7 +160,7 @@ function renderBookings(){
 
         <p>
           <strong>Package:</strong>
-          ${booking.paket}
+          ${paket}
         </p>
 
         <p>

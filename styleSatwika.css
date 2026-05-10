@@ -73,49 +73,6 @@ body{
   margin-bottom:40px;
 }
 
-.features{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-.feature-card{
-  display:flex;
-  align-items:center;
-  gap:20px;
-
-  background:rgba(255,255,255,.08);
-
-  border:1px solid rgba(255,255,255,.1);
-
-  padding:20px;
-
-  border-radius:20px;
-
-  backdrop-filter:blur(12px);
-
-  transition:.4s;
-}
-
-.feature-card:hover{
-  transform:translateY(-5px);
-}
-
-.icon{
-  width:60px;
-  height:60px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  background:#A68868;
-
-  border-radius:18px;
-
-  font-size:24px;
-}
-
 /* FORM */
 .booking-form-container{
   flex:1;

@@ -176,6 +176,13 @@ body{
 .input-group input,
 .input-group textarea,
 .input-group select{
+  cursor:pointer;
+}
+
+.input-group select option:checked{
+  background:#A68868;
+  color:#071739;
+}
   width:100%;
 
   padding:18px 15px;

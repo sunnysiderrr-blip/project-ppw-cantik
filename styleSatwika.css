@@ -176,12 +176,7 @@ body{
 .input-group input,
 .input-group textarea,
 .input-group select{
-  .input-group select{
-  cursor:pointer;
-.input-group select option:checked{
-  background:#A68868;
-  color:#071739;
-}
+
   width:100%;
 
   padding:18px 15px;
@@ -196,6 +191,23 @@ body{
 
   color:white;
   font-size:15px;
+}
+
+/* SELECT STYLE */
+.input-group select{
+  cursor:pointer;
+}
+
+/* OPTION STYLE */
+.input-group select option{
+  background:#4B6382;
+  color:white;
+}
+
+/* OPTION YANG DIPILIH */
+.input-group select option:checked{
+  background:#A68868;
+  color:#071739;
 }
 
 .input-group textarea{

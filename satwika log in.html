@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Satwika | Login Premium</title>
 
     <!-- Font -->
@@ -299,26 +298,6 @@
             filter:brightness(1.1);
         }
 
-        .bottom-text{
-            text-align:center;
-
-            margin-top:30px;
-
-            font-size:14px;
-
-            color:var(--silver-blue);
-        }
-
-        .bottom-text a{
-            color:var(--champagne);
-
-            text-decoration:none;
-
-            font-weight:600;
-
-            margin-left:5px;
-        }
-
         .loader{
             width:18px;
             height:18px;
@@ -423,13 +402,6 @@
 
         </form>
 
-        <div class="bottom-text">
-            Belum punya akun?
-            <a href="signup.html">
-                Daftar Sekarang
-            </a>
-        </div>
-
     </div>
 
     <script>
@@ -479,91 +451,45 @@
 
 
 
-        // Login System
+        // Login Button Animation
         loginForm.addEventListener(
             "submit",
             function(e){
 
                 e.preventDefault();
 
-                const email =
-                document.getElementById("email").value;
+                btnText.textContent =
+                "Menghubungkan...";
 
-                const password =
-                document.getElementById("password").value;
+                loader.style.display =
+                "block";
 
-
-
-                // Ambil akun dari signup
-                const savedUser =
-                JSON.parse(
-                    localStorage.getItem(
-                        "satwikaUser"
-                    )
-                );
+                loginBtn.style.pointerEvents =
+                "none";
 
 
 
-                // Jika akun belum ada
-                if(!savedUser){
-
-                    alert(
-                        "Akun belum terdaftar!"
-                    );
-
-                    return;
-                }
-
-
-
-                // Validasi login
-                if(
-
-                    email === savedUser.email &&
-                    password === savedUser.password
-
-                ){
+                setTimeout(() => {
 
                     btnText.textContent =
-                    "Menghubungkan...";
+                    "Berhasil!";
 
                     loader.style.display =
-                    "block";
-
-                    loginBtn.style.pointerEvents =
                     "none";
+
+                    loginBtn.style.background =
+                    "#A4B5C4";
 
 
 
                     setTimeout(() => {
 
-                        btnText.textContent =
-                        "Berhasil!";
+                        window.location.href =
+                        "index.html";
 
-                        loader.style.display =
-                        "none";
+                    }, 1000);
 
-                        loginBtn.style.background =
-                        "#A4B5C4";
-
-
-
-                        setTimeout(() => {
-
-                            window.location.href =
-                            "index.html";
-
-                        }, 1000);
-
-                    }, 1500);
-
-                } else {
-
-                    alert(
-                        "Email atau password salah!"
-                    );
-
-                }
+                }, 1500);
 
             }
         );

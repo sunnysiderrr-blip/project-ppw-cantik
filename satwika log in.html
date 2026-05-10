@@ -279,6 +279,90 @@
     </div>
 
     <script>
+<script>
+
+const loginForm =
+document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    // Ambil data dari signup
+    const savedUser =
+    JSON.parse(localStorage.getItem("satwikaUser"));
+
+    // Cek apakah akun ada
+    if(!savedUser){
+
+        alert("Akun belum terdaftar!");
+        return;
+    }
+
+    // Validasi login
+    if(
+        email === savedUser.email &&
+        password === savedUser.password
+    ){
+
+        alert("Login berhasil!");
+
+        // pindah ke home
+        window.location.href = "index.html";
+
+    } else {
+
+        alert("Email atau password salah!");
+const loginForm =
+document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    // Ambil data dari signup
+    const savedUser =
+    JSON.parse(localStorage.getItem("satwikaUser"));
+
+    // Cek apakah akun ada
+    if(!savedUser){
+
+        alert("Akun belum terdaftar!");
+        return;
+    }
+
+    // Validasi login
+    if(
+        email === savedUser.email &&
+        password === savedUser.password
+    ){
+
+        alert("Login berhasil!");
+
+        // pindah ke home
+        window.location.href = "index.html";
+
+    } else {
+
+        alert("Email atau password salah!");
+
+    }
+
+});
+
+</script>
         const loginForm = document.getElementById("loginForm");
         const loginBtn = document.getElementById("loginBtn");
         const loader = document.getElementById("loader");

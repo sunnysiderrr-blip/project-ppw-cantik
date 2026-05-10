@@ -272,17 +272,17 @@ body{
 
   background:linear-gradient(
     135deg,
-    crimson,
     #A68868,
     #E3C39D
   );
 
-  color:black;
+  color:#071739;
 
   font-weight:600;
 
   transition:.4s;
 }
+
 
 .cancel-btn:hover{
   transform:translateY(-4px);

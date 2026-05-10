@@ -213,15 +213,12 @@ body{
 }
 
 /* BUTTON */
-.booking-btn{
+.booking-btn,
+.cancel-btn{
   border:none;
-
   padding:18px;
-
   border-radius:18px;
-
   width:100%;
-
   cursor:pointer;
 
   background:linear-gradient(
@@ -231,16 +228,18 @@ body{
   );
 
   color:#071739;
-
   font-weight:600;
-
   transition:.4s;
 }
 
-.booking-btn:hover{
+.booking-btn:hover,
+.cancel-btn:hover{
   transform:translateY(-4px);
 }
 
+.cancel-btn{
+  margin-top:15px;
+}
 .success-message{
   margin-top:20px;
 
@@ -255,37 +254,6 @@ body{
   border:1px solid rgba(255,255,255,.1);
 
   display:none;
-}
-
-.cancel-btn{
-  border:none;
-
-  padding:14px;
-
-  border-radius:14px;
-
-  width:100%;
-
-  cursor:pointer;
-
-  margin-top:15px;
-
-  background:linear-gradient(
-    135deg,
-    #A68868,
-    #E3C39D
-  );
-
-  color:#071739;
-
-  font-weight:600;
-
-  transition:.4s;
-}
-
-
-.cancel-btn:hover{
-  transform:translateY(-4px);
 }
 
 /* HISTORY */

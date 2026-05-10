@@ -236,8 +236,7 @@ body{
 }
 
 /* BUTTON */
-.booking-btn,
-#clearHistory{
+.booking-btn{
   border:none;
 
   padding:18px;
@@ -261,8 +260,7 @@ body{
   transition:.4s;
 }
 
-.booking-btn:hover,
-#clearHistory:hover{
+.booking-btn:hover{
   transform:translateY(-4px);
 }
 
@@ -282,6 +280,36 @@ body{
   display:none;
 }
 
+.cancel-btn{
+  border:none;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  width:100%;
+
+  cursor:pointer;
+
+  margin-top:15px;
+
+  background:linear-gradient(
+    135deg,
+    crimson,
+    #ff6b81
+  );
+
+  color:white;
+
+  font-weight:600;
+
+  transition:.4s;
+}
+
+.cancel-btn:hover{
+  transform:translateY(-4px);
+}
+
 /* HISTORY */
 .history-section{
   padding:40px 8% 80px;
@@ -299,10 +327,6 @@ body{
   font-size:40px;
 }
 
-#clearHistory{
-  width:auto;
-  padding:12px 24px;
-}
 
 .history-container{
   display:grid;

@@ -19,27 +19,53 @@ form.addEventListener("submit", function(e){
 
   e.preventDefault();
 
-  const booking = {
+  const guestCount =
+parseInt(document.getElementById("guests").value);
 
-    name:
-    document.getElementById("name").value,
+let paket = "";
 
-    phone:
-    document.getElementById("phone").value,
+if(guestCount === 1){
 
-    date:
-    document.getElementById("date").value,
+  paket = "Paket Wanci (1 orang)";
 
-    time:
-    document.getElementById("time").value,
+}else if(guestCount === 2){
 
-    guests:
-    document.getElementById("guests").value,
+  paket = "Paket Sapasang (2 orang)";
 
-    notes:
-    document.getElementById("notes").value
+}else if(guestCount >= 3 && guestCount <= 10){
 
-  };
+  paket = "Paket Serumpun (Family 3-10 orang)";
+
+}else if(guestCount > 10){
+
+  paket = "Paket Kenduri (Grup >10 orang)";
+
+}
+
+const booking = {
+
+  name:
+  document.getElementById("name").value,
+
+  phone:
+  document.getElementById("phone").value,
+
+  date:
+  document.getElementById("date").value,
+
+  time:
+  document.getElementById("time").value,
+
+  guests:
+  guestCount + " People",
+
+  paket:
+  paket,
+
+  notes:
+  document.getElementById("notes").value
+
+};
 
   bookings.unshift(booking);
 
@@ -104,6 +130,11 @@ function renderBookings(){
         <p>
           <strong>Guests:</strong>
           ${booking.guests}
+        </p>
+
+        <p>
+          <strong>Package:</strong>
+          ${booking.paket}
         </p>
 
         <p>

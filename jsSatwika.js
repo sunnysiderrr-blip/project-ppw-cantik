@@ -6,9 +6,6 @@ document.getElementById("successMessage");
 const bookingHistory =
 document.getElementById("bookingHistory");
 
-const clearHistory =
-document.getElementById("clearHistory");
-
 let bookings =
 JSON.parse(localStorage.getItem("bookings")) || [];
 
@@ -20,52 +17,54 @@ form.addEventListener("submit", function(e){
   e.preventDefault();
 
   const guestCount =
-parseInt(document.getElementById("guests").value);
+  parseInt(document.getElementById("guests").value);
 
-let paket = "";
+  let paket = "";
 
-if(guestCount === 1){
+  if(guestCount === 1){
 
-  paket = "Paket Wanci (1 orang)";
+    paket = "Paket Wanci (1 orang)";
 
-}else if(guestCount === 2){
+  }else if(guestCount === 2){
 
-  paket = "Paket Sapasang (2 orang)";
+    paket = "Paket Sapasang (2 orang)";
 
-}else if(guestCount >= 3 && guestCount <= 10){
+  }else if(guestCount >= 3 && guestCount <= 10){
 
-  paket = "Paket Serumpun (Family 3-10 orang)";
+    paket = "Paket Serumpun (Family 3-10 orang)";
 
-}else if(guestCount > 10){
+  }else if(guestCount > 10){
 
-  paket = "Paket Kenduri (Grup >10 orang)";
+    paket = "Paket Kenduri (Grup >10 orang)";
 
-}
+  }
 
-const booking = {
+  const booking = {
 
-  name:
-  document.getElementById("name").value,
+    id: Date.now(),
 
-  phone:
-  document.getElementById("phone").value,
+    name:
+    document.getElementById("name").value,
 
-  date:
-  document.getElementById("date").value,
+    phone:
+    document.getElementById("phone").value,
 
-  time:
-  document.getElementById("time").value,
+    date:
+    document.getElementById("date").value,
 
-  guests:
-  guestCount + " People",
+    time:
+    document.getElementById("time").value,
 
-  paket:
-  paket,
+    guests:
+    guestCount + " People",
 
-  notes:
-  document.getElementById("notes").value
+    paket:
+    paket,
 
-};
+    notes:
+    document.getElementById("notes").value
+
+  };
 
   bookings.unshift(booking);
 
@@ -104,33 +103,7 @@ function renderBookings(){
 
   bookingHistory.innerHTML = "";
 
-  bookings.forEach((booking) => {
-
-  let paket = booking.paket;
-
-  if(!paket){
-
-    const jumlah =
-    parseInt(booking.guests);
-
-    if(jumlah === 1){
-
-      paket = "Paket Wanci (1 orang)";
-
-    }else if(jumlah === 2){
-
-      paket = "Paket Sapasang (2 orang)";
-
-    }else if(jumlah >= 3 && jumlah <= 10){
-
-      paket = "Paket Serumpun (Family 3-10 orang)";
-
-    }else if(jumlah > 10){
-
-      paket = "Paket Kenduri (Grup >10 orang)";
-    }
-
-  }
+  bookings.forEach((booking, index) => {
 
     bookingHistory.innerHTML += `
 
@@ -160,13 +133,20 @@ function renderBookings(){
 
         <p>
           <strong>Package:</strong>
-          ${paket}
+          ${booking.paket}
         </p>
 
         <p>
           <strong>Notes:</strong>
           ${booking.notes}
         </p>
+
+        <button 
+          class="cancel-btn"
+          onclick="deleteBooking(${index})"
+        >
+          Batalkan Reservasi
+        </button>
 
       </div>
 
@@ -176,16 +156,19 @@ function renderBookings(){
 
 }
 
-/* CLEAR HISTORY */
-clearHistory.addEventListener("click", () => {
+/* DELETE SATU RESERVASI */
+function deleteBooking(index){
 
-  bookings = [];
+  bookings.splice(index, 1);
 
-  localStorage.removeItem("bookings");
+  localStorage.setItem(
+    "bookings",
+    JSON.stringify(bookings)
+  );
 
   renderBookings();
 
-});
+}
 
 /* INTERACTIVE EFFECT */
 document.addEventListener("mousemove", (e) => {

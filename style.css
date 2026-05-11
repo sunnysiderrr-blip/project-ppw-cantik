@@ -276,7 +276,7 @@ button,
 
 .menu-card img {
   width: 100%;
-  height: clamp(180px, 25vw, 240px);
+  aspect-ratio: 14 / 9;
   object-fit: cover;
   display: block;
 }

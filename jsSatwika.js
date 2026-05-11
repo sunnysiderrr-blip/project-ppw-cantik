@@ -56,7 +56,7 @@ form.addEventListener("submit", function(e){
     document.getElementById("time").value,
 
     guests:
-    guestCount + " People",
+    guestCount + " Orang",
 
     paket:
     paket,

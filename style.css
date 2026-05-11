@@ -255,7 +255,11 @@ button,
 }
 
 .menu-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
 }
 
 .menu-card {
